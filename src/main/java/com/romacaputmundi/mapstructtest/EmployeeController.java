@@ -19,6 +19,10 @@ class EmployeeController {
     this.repository = repository;
   }
 
+  @GetMapping("/status")
+  String status() {
+    return "OK";
+  }
 
   // Aggregate root
   // tag::get-aggregate-root[]
