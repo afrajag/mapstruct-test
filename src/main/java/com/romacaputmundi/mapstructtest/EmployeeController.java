@@ -2,6 +2,7 @@ package com.romacaputmundi.mapstructtest;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,6 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 class EmployeeController {
 
+  @Value("${greet:Afrajag}")
+  private String greet;	
+	
   private final EmployeeRepository repository;
 
   EmployeeController(EmployeeRepository repository) {
@@ -21,7 +25,7 @@ class EmployeeController {
 
   @GetMapping("/status")
   String status() {
-    return "OK";
+    return "OK from " + greet;
   }
 
   // Aggregate root
